@@ -29,10 +29,13 @@ function TodoForm(props) {
     
     var today = new Date(Date.now());
     var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); 
     var yyyy = today.getFullYear();
+    var hour = Math.floor((Date.now() / (1000*60*60)) % 24 + 3);
+    var minutes = Math.floor((Date.now() / (1000 * 60)) % 60);
+    var seconds = Math.floor((Date.now() / 1000) % 60); 
 
-    today = mm + '/' + dd + '/' + yyyy;
+    today = mm + '/' + dd + '/' + yyyy + ' ' + hour + ':' + minutes + ':' + seconds;
 
     props.onSubmit({
       id: uuidv4(),
@@ -50,6 +53,7 @@ function TodoForm(props) {
   };
 
   return (
+    
     <form onSubmit={handleSubmit} className='todo-form'>
       {props.edit ? (
         <>  

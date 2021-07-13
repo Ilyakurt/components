@@ -26,6 +26,13 @@ body {
   padding-bottom: 32px;
 }
 
+.add {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 h1 {
   margin: 32px 0;
   color: #fff;
